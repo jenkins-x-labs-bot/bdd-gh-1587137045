@@ -1,0 +1,54 @@
+
+Showing logs for build [32mjenkins-x-labs-bot-bdd-gh-15871-58zp4-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-c6sv5[0m
+{"level":"warn","ts":1587137515.5173998,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1587137515.5179803,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjenkins-x-labs-bot-bdd-gh-15871-58zp4-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-vrnc6[0m
+{"level":"warn","ts":1587137516.575105,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1587137516.5760818,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjenkins-x-labs-bot-bdd-gh-15871-58zp4-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjenkins-x-labs-bot-bdd-gh-15871-58zp4-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-jenkins-x-labs-bot-bdd-gh-15871-58zp4-8qbkd[0m
+{"level":"warn","ts":1587137522.6955645,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1587137523.7736294,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/******************/bdd-gh-1587137045.git @ master in path /workspace/source"}
+
+Showing logs for build [32mjenkins-x-labs-bot-bdd-gh-15871-58zp4-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:6aa78d37e30f861ab73f19121ba55ad4ac7f3f1b,1:20896de837464f558992371ee4527e0010290585
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 20896de837464f558992371ee4527e0010290585: 6aa78d37e30f861ab73f19121ba55ad4ac7f3f1b:
+DEBUG: ran git fetch --unshallow origin 20896de837464f558992371ee4527e0010290585: 6aa78d37e30f861ab73f19121ba55ad4ac7f3f1b: in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 6aa78d37e30f861ab73f19121ba55ad4ac7f3f1b
+DEBUG: ran git reset --hard 6aa78d37e30f861ab73f19121ba55ad4ac7f3f1b in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 20896de837464f558992371ee4527e0010290585
+DEBUG: ran git merge 20896de837464f558992371ee4527e0010290585 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 6aa78d37e30f861ab73f19121ba55ad4ac7f3f1b..HEAD
+Merged SHA 20896de837464f558992371ee4527e0010290585 with commit message 'My first PR commit' into base branch master
+
+Showing logs for build [32mjenkins-x-labs-bot-bdd-gh-15871-58zp4-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/bdd-gh-1587137045 main.go
+
+Showing logs for build [32mjenkins-x-labs-bot-bdd-gh-15871-58zp4-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+ERROR: logging before flag.Parse: E0417 15:32:10.493423      11 metadata.go:241] Failed to unmarshal scopes: invalid character 'h' looking for beginning of value
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/bdd-gh-1587137045"]            
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+error pushing image: failed to push to destination gcr.io/jenkins-x-labs-bdd/bdd-gh-1587137045:0.0.0-SNAPSHOT-PR-1-1: DENIED: Access denied.
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
